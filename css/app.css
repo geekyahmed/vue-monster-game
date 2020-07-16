@@ -1,0 +1,23 @@
+* {
+  font-family: Poppins;
+}
+body {
+  margin: 0;
+}
+.progress {
+  width: 80%;
+  height: 40px;
+  background-color: #eee;
+  margin: auto;
+  transition: width 500ms;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  background-color: indigo;
+  padding: 20px 10px;
+  color: white;
+}

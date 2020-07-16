@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 my-5">
+                    <div class="health">
+                        <h3 class="text-center">YOU</h3>
+                        <div class="progress">
+                            <div class="progress-bar" :style="{width: playerHealth + '%'}">{{playerHealth}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 my-5">
+                    <div class="health">
+                        <h3 class="text-center">ENEMY</h3>
+                        <div class="progress">
+                            <div class="progress-bar" :style="{width: enemyHealth  + '%'}">{{enemyHealth}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <section v-if="!gameIsRunning">
+                                <div class="">
+                                    <button class="btn btn-secondary my-3" @click="startGame">Start Game</button>
+                                </div>
+                            </section>
+                            <section v-else>
+                                <div class="">
+                                    <button class="btn btn-secondary my-3" @click="attack">Launch Attack</button>
+                                    <button class="btn btn-secondary my-3" @click="specialAttack">Launch Special
+                                        Attack</button>
+                                    <button class="btn btn-secondary my-3" @click="heal">Heal</button>
+                                    <button class="btn btn-secondary my-3" @click="giveUp">Give up</button>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-3" v-if="gameIsRunning">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <ul v-for="turn in turns">
+                                <li> {{ turn.text }} </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="vue.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
